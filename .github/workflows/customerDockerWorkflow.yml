@@ -1,0 +1,22 @@
+name: Build and Push Docker Image
+on: push
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build Docker image
+        run: docker build -t soufiiyane/your-docker-repo-name:latest customer-service/
+
+      - name: Login to Docker Hub
+        run: echo "Soufiyane2020" | docker login -u soufiiyane --password-stdin
+
+      - name: Push Docker image to Docker Hub
+        run: docker push soufiiyane/your-docker-repo-name:latest
