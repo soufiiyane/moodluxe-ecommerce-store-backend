@@ -9,5 +9,7 @@ ENV DB_USERNAME=moodluxe
 ENV DB_PASSWORD=moodluxe
 ENV POSTGRES_HOST=postgres-moodluxe
 ENV POSTGRES_PORT=5432
+ENV EUREKA_HOST=discovery-service
+ENV EUREKA_PORT=8761
 COPY target/*.jar customer-service.jar
 ENTRYPOINT ["java","-XX:+UseContainerSupport","-XX:MaxRAM=512m","-jar","/customer-service.jar"]
