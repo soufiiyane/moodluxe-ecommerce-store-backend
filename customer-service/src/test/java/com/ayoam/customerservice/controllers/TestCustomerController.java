@@ -41,7 +41,6 @@ public class TestCustomerController {
         void itShouldGetCustomerById() throws Exception {
             // Given
             Long customerID = 1L;
-
             // When
             ResultActions result = mockMvc.perform(get(CONTROLLER_ENDPOINT + "/" + customerID)
                     .contentType(MediaType.APPLICATION_JSON));
